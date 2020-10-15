@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>添加</title>
+    <link type="text/css" rel="stylesheet" href="css/index.css">
+</head>
+
+<body class="addBody">
+    <p class="formTopic">添加新账号</p>
+    <form method="POST" action="/add">
+        <label for='website'>TIME:</label>
+        <input name="time" type="text" id="time">
+        <label for='website'>WEBSITE:</label>
+        <input name="website" type="text" id="website" placeholder="哪儿的账号">
+        <label for='username'>USERNAME:</label>
+        <input name="username" type="text" id="username" placeholder="你的用户名">
+        <label for='password'>PASSWORD:</label>
+        <input name="password" type="password" id="password" placeholder="你的密码">
+        <span class="tips">双击输入框显示密码</span>
+        <label for="description">DESCRIPTION:</label>
+        <textarea name="description" id="description" placeholder="对此账号的描述：如密保问题"></textarea>
+        <input id="submit" type="submit" value="SUBMIT">
+    </form>
+    <script>
+        let now = new Date();
+        let date = now.toLocaleString();
+        let time = document.querySelector('#time');
+        time.value = date;
+        time.readOnly = true;
+        let password = document.querySelector('#password');
+        let tips = document.querySelector('.tips');
+        password.addEventListener('dblclick', () => {
+            if (password.type == 'password') {
+                password.type = 'text';
+                tips.innerHTML = '双击输入框隐藏密码';
+            } else {
+                password.type = 'password';
+                tips.innerHTML = '双击输入框显示密码';
+            }
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>首页</title>
+    <link rel="stylesheet" href="css/index.css">
+</head>
+<body class="homeBody">
+    <div class="mainContent">
+        <span class="words">
+            我是爱南开的
+        </span>
+        <button class="indexBtn">添加</button>
+        <button class="indexBtn">查看</button>
+    </div>
+    <p class="author">designed by lengdp</p>
+    <script>
+        let btn = document.querySelectorAll('button');
+        btn[1].addEventListener('click', () => {
+            window.location.href = '/list';
+        })
+        btn[0].addEventListener('click', () => {
+            window.location.href = '/add';
+        })
+    </script>
+</body>
+
+</html>

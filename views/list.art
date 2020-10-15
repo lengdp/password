@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>查看</title>
+    <link type="text/css" rel="stylesheet" href="css/index.css"> 
+</head>
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th class="time">TIME</th>
+                <th class="website">WEBSITE</th>
+                <th class="username">USERNAME</th>
+                <th class="password">PASSWORD</th>
+                <th class="note">DESCRIPTION</th>
+                <th class="operation">OPERATION</th>
+            </tr>
+        </thead>
+        <tbody>
+        {{each password}}
+        <tr>
+            <td>{{$value.time}}</td>
+            <td>{{$value.website}}</td>
+            <td>{{$value.username}}</td>
+            <td class="psw">{{$value.password}}<span class='block'>非礼勿视</span></td>
+            <td>{{$value.description}}</td>
+            <td><a href='/list/remove?time={{$value.time}}' class="delete">删除</a>/
+            <a href='/modify?time={{$value.time}}' class="fix">修改</a></td>
+            </tr>
+        {{/each}}
+        </tbody>
+    </table>
+    <script>
+        let del = document.querySelectorAll('.delete');
+        let psw = document.querySelectorAll('.psw');
+        let block = document.querySelectorAll('.block');
+        for (let i = 0; i < psw.length; i++) {
+            psw[i].addEventListener('dblclick', () => {
+                if (block[i].style.display != 'none') {
+                    block[i].style.display = 'none';
+                }
+                else {
+                    block[i].style.display = 'block';
+                }
+            })
+        }
+        for (let j = 0; j < del.length; j++) {
+            del[j].addEventListener('click', () => {
+                let flag = confirm('确定要删除此账号吗？');
+                if (flag) {
+                    del.href = '/remove?id=${psw._id}';
+                }
+            })
+        }
+    </script>
+</body>
+
+</html>
