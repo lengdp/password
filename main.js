@@ -5,6 +5,7 @@ const index=require('./route/index');
 const add=require('./route/add');
 const list=require('./route/list');
 const modify=require('./route/modify');
+const remove=require('./route/remove')
 require('./model/connect')
 require('./model/table')
 
@@ -18,6 +19,7 @@ main.use('/',index);
 main.use('/add',add);
 main.use('/list',list);
 main.use('/modify',modify);
+main.use('/remove',remove);
 
 main.listen(3000);
 console.log('running……');

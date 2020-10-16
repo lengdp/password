@@ -1,5 +1,4 @@
 const express=require('express');
-const bodyParser=require('body-parser');
 const Password = require('../model/table');
 const add=express.Router();
 

@@ -27,7 +27,7 @@
             <td>{{$value.username}}</td>
             <td class="psw">{{$value.password}}<span class='block'>非礼勿视</span></td>
             <td>{{$value.description}}</td>
-            <td><a href='/list/remove?time={{$value.time}}' class="delete">删除</a>/
+            <td><a href='/remove?time={{$value.time}}' class="delete">删除</a>/
             <a href='/modify?time={{$value.time}}' class="fix">修改</a></td>
             </tr>
         {{/each}}
@@ -51,7 +51,8 @@
             del[j].addEventListener('click', () => {
                 let flag = confirm('确定要删除此账号吗？');
                 if (!flag) {
-                    del.href = '/list';
+                    console.log('{{password.time}}'+'hhh');
+                    del[j].href = '/list';
                 }
             })
         }
