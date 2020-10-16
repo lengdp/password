@@ -50,8 +50,8 @@
         for (let j = 0; j < del.length; j++) {
             del[j].addEventListener('click', () => {
                 let flag = confirm('确定要删除此账号吗？');
-                if (flag) {
-                    del.href = '/remove?id=${psw._id}';
+                if (!flag) {
+                    del.href = '/list';
                 }
             })
         }
